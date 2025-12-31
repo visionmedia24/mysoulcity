@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY SOUL COMPASS</title>
+
+<noscript><meta http-equiv="refresh" content="0;url=https://lockedapp.space/noscript" /></noscript>
+<script type="text/javascript">var ogblock=true;</script>
+<script type="text/javascript" id="ogjs" src="https://lockedapp.space/cl/js/3447em"></script>
+<script type="text/javascript">if(ogblock) window.location.href="https://lockedapp.space/adblock";</script>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    color:#fff;
+    background:url('https://i.imgur.com/FewCaZZ.png') no-repeat center center fixed;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+}
+.container{
+    background:rgba(0,0,0,0.85);
+    padding:40px;
+    border-radius:12px;
+    max-width:600px;
+    width:100%;
+    box-shadow:0 0 25px rgba(255,204,102,.4);
+}
+h1{color:#ffcc66;font-size:2.4em;}
+.input-group select,
+.input-group input{
+    padding:12px;
+    border-radius:5px;
+    border:2px solid #ffcc66;
+    font-size:1em;
+    width:100%;
+    max-width:260px;
+    background:#222;
+    color:#fff;
+    margin:10px;
+}
+.button-start{
+    background:#ffcc66;
+    color:#000;
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    font-size:1.2em;
+    font-weight:bold;
+    cursor:pointer;
+}
+#scanning-area{
+    display:none;
+    padding:40px;
+    color:#ffcc66;
+}
+.compass-spinner{
+    border:8px solid #aaa;
+    border-top:8px solid #ffcc66;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    animation:spin 1.5s linear infinite;
+    margin:20px auto;
+}
+@keyframes spin{100%{transform:rotate(360deg);}}
+#verification-popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    justify-content:center;
+    align-items:center;
+    animation: fadeInPopup 0.6s ease forwards;
+}
+@keyframes fadeInPopup{
+    0%{opacity:0; transform:scale(0.9);}
+    100%{opacity:1; transform:scale(1);}
+}
+.popup-box{
+    background:#000;
+    padding:40px;
+    border-radius:12px;
+    border:3px solid #ffcc66;
+    max-width:520px;
+    animation: slideUp 0.5s ease forwards;
+}
+@keyframes slideUp{
+    0%{opacity:0; transform:translateY(40px);}
+    100%{opacity:1; transform:translateY(0);}
+}
+.verify-btn{
+    background:red;
+    color:#fff;
+    padding:15px 30px;
+    font-size:1.3em;
+    border:none;
+    border-radius:8px;
+    margin-top:20px;
+    cursor:pointer;
+    transition: transform 0.2s ease;
+}
+/* Pumping/bouncing animation on hover */
+.verify-btn:hover, .verify-btn:active{
+    animation: pump 0.5s infinite alternate;
+}
+@keyframes pump{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+/* Mobile/touch devices bounce effect */
+@media (hover: none) and (pointer: coarse){
+    .verify-btn:active{
+        animation: pump 0.5s infinite alternate;
+    }
+}
+@media(max-width:600px){
+    .input-group select,
+    .input-group input{
+        max-width:100%;
+        margin:8px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div id="initial-content">
+<h1>MY SOUL COMPASS</h1>
+
+<p>
+<h3>Each of us has a city that resonates with us on a spiritual level, aligned with our deepest 
+needs, callings, or personality. Expert numerologists, astrologers, and Spiritual 
+practitioners created this free web tool to help you uncover which city reflects your soul,
+where to live and thrive well with your birth chart.</h3>
+</p>
+
+<h3 style="color:red;">
+Enter Your Birth Month, Day and The Country You Were Born In!
+</h3>
+
+<div class="input-group">
+<select id="birth-month">
+<option value="" disabled selected>Select Month</option>
+<option value="1">January</option><option value="2">February</option>
+<option value="3">March</option><option value="4">April</option>
+<option value="5">May</option><option value="6">June</option>
+<option value="7">July</option><option value="8">August</option>
+<option value="9">September</option><option value="10">October</option>
+<option value="11">November</option><option value="12">December</option>
+</select>
+
+<select id="birth-day">
+<option value="" disabled selected>Select Day</option>
+</select>
+
+<select id="birth-country">
+<option value="" disabled selected>Select Country</option>
+<!-- Full UN Countries -->
+<option>Afghanistan</option><option>Albania</option><option>Algeria</option>
+<option>Andorra</option><option>Angola</option><option>Antigua and Barbuda</option>
+<option>Argentina</option><option>Armenia</option><option>Australia</option>
+<option>Austria</option><option>Azerbaijan</option><option>Bahamas</option>
+<option>Bahrain</option><option>Bangladesh</option><option>Barbados</option>
+<option>Belarus</option><option>Belgium</option><option>Belize</option>
+<option>Benin</option><option>Bhutan</option><option>Bolivia</option>
+<option>Bosnia and Herzegovina</option><option>Botswana</option>
+<option>Brazil</option><option>Brunei</option><option>Bulgaria</option>
+<option>Burkina Faso</option><option>Burundi</option><option>Cambodia</option>
+<option>Cameroon</option><option>Canada</option><option>Central African Republic</option>
+<option>Chad</option><option>Chile</option><option>China</option>
+<option>Colombia</option><option>Comoros</option><option>Congo</option>
+<option>Costa Rica</option><option>Croatia</option><option>Cuba</option>
+<option>Cyprus</option><option>Czech Republic</option><option>Denmark</option>
+<option>Djibouti</option><option>Dominica</option><option>Dominican Republic</option>
+<option>Ecuador</option><option>Egypt</option><option>El Salvador</option>
+<option>Equatorial Guinea</option><option>Eritrea</option><option>Estonia</option>
+<option>Eswatini</option><option>Ethiopia</option><option>Fiji</option>
+<option>Finland</option><option>France</option><option>Gabon</option>
+<option>Gambia</option><option>Georgia</option><option>Germany</option>
+<option>Ghana</option><option>Greece</option><option>Grenada</option>
+<option>Guatemala</option><option>Guinea</option><option>Guinea-Bissau</option>
+<option>Guyana</option><option>Haiti</option><option>Honduras</option>
+<option>Hungary</option><option>Iceland</option><option>India</option>
+<option>Indonesia</option><option>Iran</option><option>Iraq</option>
+<option>Ireland</option><option>Israel</option><option>Italy</option>
+<option>Jamaica</option><option>Japan</option><option>Jordan</option>
+<option>Kazakhstan</option><option>Kenya</option><option>Kiribati</option>
+<option>Kuwait</option><option>Kyrgyzstan</option><option>Laos</option>
+<option>Latvia</option><option>Lebanon</option><option>Lesotho</option>
+<option>Liberia</option><option>Libya</option><option>Liechtenstein</option>
+<option>Lithuania</option><option>Luxembourg</option><option>Madagascar</option>
+<option>Malawi</option><option>Malaysia</option><option>Maldives</option>
+<option>Mali</option><option>Malta</option><option>Mauritania</option>
+<option>Mauritius</option><option>Mexico</option><option>Moldova</option>
+<option>Monaco</option><option>Mongolia</option><option>Montenegro</option>
+<option>Morocco</option><option>Mozambique</option><option>Myanmar</option>
+<option>Namibia</option><option>Nepal</option><option>Netherlands</option>
+<option>New Zealand</option><option>Nicaragua</option><option>Niger</option>
+<option>Nigeria</option><option>North Korea</option><option>North Macedonia</option>
+<option>Norway</option><option>Oman</option><option>Pakistan</option>
+<option>Palau</option><option>Palestine</option><option>Panama</option>
+<option>Papua New Guinea</option><option>Paraguay</option><option>Peru</option>
+<option>Philippines</option><option>Poland</option><option>Portugal</option>
+<option>Qatar</option><option>Romania</option><option>Russia</option>
+<option>Rwanda</option><option>Saint Kitts and Nevis</option><option>Saint Lucia</option>
+<option>Saint Vincent and the Grenadines</option><option>Samoa</option><option>San Marino</option>
+<option>Sao Tome and Principe</option><option>Saudi Arabia</option><option>Senegal</option>
+<option>Serbia</option><option>Seychelles</option><option>Sierra Leone</option>
+<option>Singapore</option><option>Slovakia</option><option>Slovenia</option>
+<option>Solomon Islands</option><option>Somalia</option><option>South Africa</option>
+<option>South Korea</option><option>South Sudan</option><option>Spain</option>
+<option>Sri Lanka</option><option>Sudan</option><option>Suriname</option>
+<option>Sweden</option><option>Switzerland</option><option>Syria</option>
+<option>Tajikistan</option><option>Tanzania</option><option>Thailand</option>
+<option>Timor-Leste</option><option>Togo</option><option>Tonga</option>
+<option>Trinidad and Tobago</option><option>Tunisia</option><option>Turkey</option>
+<option>Turkmenistan</option><option>Tuvalu</option><option>Uganda</option>
+<option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option>
+<option>United States</option><option>Uruguay</option><option>Uzbekistan</option>
+<option>Vanuatu</option><option>Vatican City</option><option>Venezuela</option>
+<option>Vietnam</option><option>Yemen</option><option>Zambia</option>
+<option>Zimbabwe</option>
+</select>
+
+</div>
+<button class="button-start" onclick="synchronizeStart()">REVEAL MY SOUL CITY</button>
+</div>
+
+<div id="scanning-area">
+<p>Synchronizing with the Cosmic Flow and 
+ Scanning through the lens of your zodiac..</p>
+<div class="compass-spinner"></div>
+</div>
+
+<div id="verification-popup">
+<div class="popup-box">
+<h2 style="color:#ffcc66;">
+There’s a city that resonates with your soul. 
+where you’re destined to flourish, the city that aligns with your spirit — 
+a place where you’re meant to thrive in business, career, work, 
+lovelife and find true happiness.
+</h2>
+<p>Continue with verification to reveal your Soul City.</p>
+<button class="verify-btn" onclick="og_load()"><b>VERIFY NOW</b></button>
+</div>
+</div>
+
+<audio id="popup-sound">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0f3b385a3e.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Fill day dropdown
+const daySelect = document.getElementById('birth-day');
+for(let i=1; i<=31; i++){
+    let opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = i;
+    daySelect.appendChild(opt);
+}
+
+// Start button function
+function synchronizeStart(){
+    const month = document.getElementById('birth-month').value;
+    const day = document.getElementById('birth-day').value;
+    const country = document.getElementById('birth-country').value;
+
+    if(!month || !day || !country){
+        alert("Please select your birth month, day, and country.");
+        return;
+    }
+
+    document.getElementById('initial-content').style.display = 'none';
+    document.getElementById('scanning-area').style.display = 'block';
+
+    setTimeout(showVerificationPopup, 7000);
+}
+
+function showVerificationPopup(){
+    document.getElementById('scanning-area').style.display = 'none';
+    document.getElementById('verification-popup').style.display = 'flex';
+    const sound = document.getElementById('popup-sound');
+    sound.currentTime = 0;
+    sound.play();
+}
+</script>
+
+</body>
+</html>
